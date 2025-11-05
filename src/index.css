@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+nav .active {
+    text-decoration: underline;
+    text-decoration-color: #632EE3;
+    background: linear-gradient(to right, #632EE3, #9F62F2);
+    background-clip: text;
+    color: transparent;
+}
+
+.footer_title_heading {
+    color:rgba(255, 255, 255, 0.6);
+    font-weight:600;
+    font-size: large;
+    margin-bottom: 20px;
+    
+}
