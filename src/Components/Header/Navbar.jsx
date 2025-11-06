@@ -49,7 +49,7 @@ const Navbar = () => {
 
       {/* LOGO AND Title */}
             <div className='flex gap-2 ml-[30px]' onClick={handleLogoClick}>
-              <img className='w-[44px]' src="/public/assets/logo.png" alt="Logo" />
+              <img className='w-[44px]' src="/assets/logo.png" alt="Logo" />
               <a className="mt-2 text-[16px] font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent" href=''>HERO.IO</a>
             </div>
         </div>

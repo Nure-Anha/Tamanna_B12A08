@@ -12,13 +12,13 @@ const HomePage = () => {
         {/* 2 BUTTONS */}
             <div className="mt-[40px] flex justify-center items-center pb-[40px]">
 
-                <a className='btn font-semibold text-[16px] text-[#001931]' href="https://share.google/z6USyw39W4b7y4FGK" target='blank'> <img className='w-6 h-6' src="../../../public/assets/Play_Store.png" alt="Play Store Icon" /> Google Play</a>
+                <a className='btn font-semibold text-[16px] text-[#001931]' href="https://share.google/z6USyw39W4b7y4FGK" target='blank'> <img className='w-6 h-6' src="/assets/Play_Store.png" alt="Play Store Icon" /> Google Play</a>
 
-                <a className='btn font-semibold text-[16px] text-[#001931] ml-6' href="https://www.apple.com/app-store/" target='blank'> <img className='w-6 h-6' src="../../../public/assets/App Store.jpg" alt="App Store Icon" /> App Store</a>
+                <a className='btn font-semibold text-[16px] text-[#001931] ml-6' href="https://www.apple.com/app-store/" target='blank'> <img className='w-6 h-6' src="/assets/App Store.jpg" alt="App Store Icon" /> App Store</a>
             </div>
 
         {/* Hero Image */} 
-            <img className='mx-auto' src="../../../public/assets/hero.png" alt="" />
+            <img className='mx-auto' src="/assets/hero.png" alt="" />
 
         {/* Trusted Section */}
         <div className="bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white">
