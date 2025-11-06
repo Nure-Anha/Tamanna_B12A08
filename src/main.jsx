@@ -18,10 +18,10 @@ const router = createBrowserRouter([
     Component: Root ,   // header outlet footer ashse page e
     errorElement: <ErrorPage></ErrorPage>,
     
-    children: [           // children outlet e boshbe
-      {index:true , Component: HomePage} ,
+    children: [           // children jeye outlet e boshbe
+      {index:true , Component: HomePage} ,  // dhuktei home page ta eshe thakbe
       {path:'apps' , Component: Apps} ,
-      {path:'installation' , Component: InstallationPage} ,
+      {path:'installation' , Component: InstallationPage} 
     ]
   },
 ]);

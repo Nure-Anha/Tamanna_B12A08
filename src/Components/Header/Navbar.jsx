@@ -38,6 +38,8 @@ const Navbar = () => {
                     className=" menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                       
                     {/* {links} */}
+                    
+                {/* Navigation links for SM Screen */}
                     <li className='mb-5 md:mb-0'><NavLink to='/' className=' mr-10 font-medium text-[16px]'>Home</NavLink></li>
                     <li className='mb-5 md:mb-0'><NavLink to='/apps' className=' mr-10 font-medium text-[16px]'>Apps</NavLink></li>
                     <li><NavLink to='/installation' className=' font-medium text-[16px]'>Installation</NavLink></li>
@@ -47,7 +49,7 @@ const Navbar = () => {
 
       {/* LOGO AND Title */}
             <div className='flex gap-2 ml-[30px]' onClick={handleLogoClick}>
-              <img className='w-[44px]' src="/public/assets/logo.png" alt="" />
+              <img className='w-[44px]' src="/public/assets/logo.png" alt="Logo" />
               <a className="mt-2 text-[16px] font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent" href=''>HERO.IO</a>
             </div>
         </div>
