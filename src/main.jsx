@@ -10,6 +10,7 @@ import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx';
 import HomePage from './Pages/HomePage/HomePage.jsx';
 import Apps from './Pages/AppsPage/AppsPage.jsx';
 import InstallationPage from './Pages/InstallationPage/InstallationPage.jsx';
+import AppDetailsPage from './Pages/AppDetailsPage/AppDetailsPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -19,9 +20,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     
     children: [           // children jeye outlet e boshbe
-      {index:true , Component: HomePage} ,  // dhuktei home page ta eshe thakbe
+      {index:true , 
+      loader:()=>fetch('/public/TrandingAppsData.json'),
+      Component: HomePage} ,  // dhuktei HomePage component ta eshe thakbe
       {path:'apps' , Component: Apps} ,
-      {path:'installation' , Component: InstallationPage} 
+      {path:'installation' , Component: InstallationPage} ,
+      {path:'appsdetailspage' , Component: AppDetailsPage}
     ]
   },
 ]);

@@ -18,11 +18,11 @@ const Navbar = () => {
       </nav>
         
     </>
+    // clicking on the logo then goes to homepage
     const navigate = useNavigate();
-
     const handleLogoClick = () => {
       console.log("Logo clicked , need to navigate into home now") ;
-      navigate('/') ;
+      navigate("/") ;
     }
 
     return (
@@ -49,8 +49,8 @@ const Navbar = () => {
 
       {/* LOGO AND Title */}
             <div className='flex gap-2 ml-[30px]' onClick={handleLogoClick}>
-              <img className='w-[44px]' src="/assets/logo.png" alt="Logo" />
-              <a className="mt-2 text-[16px] font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent" href=''>HERO.IO</a>
+              <img className='w-11 cursor-pointer' src="/assets/logo.png" alt="Logo" />
+              <h3 className="mt-2 text-[16px] font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent cursor-pointer" >HERO.IO</h3>
             </div>
         </div>
 
@@ -64,7 +64,7 @@ const Navbar = () => {
       </div>
 
       {/* Button */}
-      <div className="navbar-end flex mr-[30px]">
+      <div className="navbar-end flex mr-2.5 md:mr-5 lg:mr-[30px]">
         <a className="text-white text-[16px] font-semibold btn bg-linear-to-r from-[#632EE3] to-[#9F62F2]" href='https://github.com/Nure-Anha' target='blank'><FontAwesomeIcon icon= {faGithub}> </FontAwesomeIcon> Contribute</a>
       </div>
     </div>
