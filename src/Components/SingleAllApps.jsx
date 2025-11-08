@@ -1,20 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 
-const SingleApp = ({i}) => {
-    console.log(i) ;
+const SingleAllApps = ({i}) => {
 
-    // Clicking on a card navigate App Details page
-    const navigate = useNavigate() ;
-    const handleCardClick = () => {
-        console.log("Card Clicked") ;
-        navigate('/appsdetailspage') ;
+// Navigate to AppsDetails page
+const navigate = useNavigate() ;
+const handleCardClick = () => {
+    console.log("Card Clicked") ;
+    navigate("/appsdetailspage") ;
 
-    }
+}    
     return (
-        <div onClick={handleCardClick}>
-            <div className='rounded-2xl shadow-2xl bg-white'>
-                <img className='max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 
+        <div>
+            <div onClick={handleCardClick} className='rounded-2xl shadow-2xl bg-white'>
+                <img className='max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl 
                 mx-auto p-5' src={i.image} alt={i.title} />
                 <p className='text-[#001931] font-medium text-center mt-3 text-xl'>{i.title} </p>
 
@@ -28,4 +27,4 @@ const SingleApp = ({i}) => {
     );
 };
 
-export default SingleApp;
+export default SingleAllApps;

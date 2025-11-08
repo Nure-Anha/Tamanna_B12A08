@@ -23,7 +23,11 @@ const router = createBrowserRouter([
       {index:true , 
       loader:()=>fetch('/public/TrandingAppsData.json'),
       Component: HomePage} ,  // dhuktei HomePage component ta eshe thakbe
-      {path:'apps' , Component: Apps} ,
+
+      {path:'apps' ,
+      loader:() => fetch("/public/AppsData.json") ,
+      Component: Apps} ,
+
       {path:'installation' , Component: InstallationPage} ,
       {path:'appsdetailspage' , Component: AppDetailsPage}
     ]
