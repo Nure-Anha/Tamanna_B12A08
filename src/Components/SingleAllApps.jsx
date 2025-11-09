@@ -7,20 +7,20 @@ const SingleAllApps = ({i}) => {
 const navigate = useNavigate() ;
 const handleCardClick = () => {
     console.log("Card Clicked") ;
-    navigate("/appsdetailspage") ;
+    navigate(`/appsdetailspage/${i.id}`) ;  // Dynamic Route 
 
 }    
     return (
         <div>
             <div onClick={handleCardClick} className='rounded-2xl shadow-2xl bg-white'>
-                <img className='max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl 
+                <img className='rounded-4xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl 
                 mx-auto p-5' src={i.image} alt={i.title} />
                 <p className='text-[#001931] font-medium text-center mt-3 text-xl'>{i.title} </p>
 
                 <div className='flex justify-between pl-4 pr-4 pb-5 mt-7'>
-                    <a className='text-green-500 font-semibold flex' href=""><img className='w-7 h-7' src="/public/assets/icon-downloads.png" alt="download icon" />{i.downloads} </a>
+                    <p className='text-green-500 font-semibold flex' ><img className='w-7 h-7' src="/public/assets/icon-downloads.png" alt="download icon" />{i.downloads}M </p>
                     
-                    <a className='text-orange-500 flex gap-x-2 text-lg font-semibold ' href=""><img className='w-7 h-7' src="/public/assets/icon-ratings.png" alt="rating icon" />{i.ratingAvg} </a>
+                    <p className='text-orange-500 flex gap-x-2 text-lg font-semibold '><img className='w-7 h-7' src="/public/assets/icon-ratings.png" alt="rating icon" />{i.ratingAvg} </p>
                 </div>
             </div>
         </div>

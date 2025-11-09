@@ -29,7 +29,12 @@ const router = createBrowserRouter([
       Component: Apps} ,
 
       {path:'installation' , Component: InstallationPage} ,
-      {path:'appsdetailspage' , Component: AppDetailsPage}
+      // {path:'appsdetailspage' , Component: AppDetailsPage} ,
+
+      {path:"appsdetailspage/:id" ,       // Dynamic Route, params hishebe :id er value e jai mainly
+       loader:() => fetch("/public/AppsData.json") ,
+       Component:AppDetailsPage
+      }
     ]
   },
 ]);
