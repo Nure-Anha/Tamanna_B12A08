@@ -10,13 +10,19 @@ const AllApps = ({Apps_Data}) => {
     const appsData = Apps_Data ;
     console.log(appsData) ;
 
-    // SEARCH 
+
+    // SEARCH & Loading spinner when user seach operation doing
     const [search , setSearch] = useState('') ;
+    const [loadingAnim , setLoadingAnim] = useState(false) ;
     const handleSearch = (e) => {
         e.preventDefault() ;
         console.log(e.target.value) ;
         setSearch(e.target.value) ;
+
+        setLoadingAnim(true) ;
+        setTimeout(() => setLoadingAnim(false), 1000);
     }
+
 
     // SEARCHED Products CONFIGURATION
     const searchVal = search.trim().toLocaleLowerCase() ; //space remv + lowercase
@@ -26,10 +32,10 @@ const AllApps = ({Apps_Data}) => {
     // IF Searched product not in allapps then naviate the page into errorpage
     const navigate = useNavigate() ;
     useEffect( () => {
-        if(searchVal && searchProd.length === 0) {
+        if(searchVal && searchProd.length && !loadingAnim  === 0) {
             navigate('/error') ;
         }
-    } , [searchVal , navigate , searchProd]) 
+    } , [searchVal , navigate , searchProd , loadingAnim]) 
 
     return (
         <div>
@@ -39,9 +45,9 @@ const AllApps = ({Apps_Data}) => {
                 <p className='text-[#001931] font-semibold text-2xl ml-10 mb-5'>({searchProd.length}) Apps Found </p>
 
             {/* SEARCH BOX */}
-                <label className='input bg-transparent border-gray-400 text-[#627382]  w-[180px] md:w-[330px] lg:w-70 xl:w-[340px] 2xl:w-90'  onChange={handleSearch} value={search} >
+                <label className='input bg-transparent border-gray-400 text-[#627382]  w-[180px] md:w-[330px] lg:w-70 xl:w-[340px] 2xl:w-90'   >
                     <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
-                    <input type="search" name='S_Apps' placeholder='Search Apps' />
+                    <input onChange={handleSearch} value={search} type="search" name='S_Apps' placeholder='Search Apps' />
                 </label>
             </div>
 
@@ -53,32 +59,24 @@ const AllApps = ({Apps_Data}) => {
                 }
             </div> */}
             <div>
-                {/* { */}
-                    {/* searchProd.length !== 0 ?  */}
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ml-10 mr-15'>
+               
+                    {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ml-10 mr-15'>
                         {
                             // appsData.map(i => <SingleAllApps key={i.id} i = {i} ></SingleAllApps>)
 
                             searchProd.map(i => <SingleAllApps key={i.id} i = {i} ></SingleAllApps>)
                         }
-                    </div> 
-                    {/* : { 
-                        const navigate = useNavigate() ;
-                        navigate('/error')
-                    } */}
-                    // <p>
-                    //     {/* <div>
-                    //         <img className='mx-auto mb-10' src="/public/assets/App-Error.png" alt="error png" />
-                    //         <p className='text-[#001931] font-semibold text-5xl text-center '>OPPS!! APP NOT FOUND</p>
-                    //         <p className='text-[#627382] text-xl font-normal mt-5'>The App you are requesting is not found on our system.  please try another apps</p>
+                    </div>  */}
+                    {
+                        loadingAnim ?  (<div><span className="loading loading-dots loading-xl text-black ml-[650px]"></span></div>)  :  (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ml-10 mr-15'>
+                        {
+                            // appsData.map(i => <SingleAllApps key={i.id} i = {i} ></SingleAllApps>)
 
-                    //         <button className='btn bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white p-2.5 rounded-lg w-[145px] h-12 font-semibold text-[16px] mt-10 mx-auto block border-0' onClick={handleGoBackBtn}>Go Back!</button>
-                    //     </div> */}
-                        
-
-                    //     {/* <ErrorPage handleGoBackBtn ={handleGoBackBtn} ></ErrorPage> */}
-                    // </p>
-                {/* // } */}
+                            searchProd.map(i => <SingleAllApps key={i.id} i = {i} ></SingleAllApps>)
+                        }
+                    </div>  )
+                    }
+                    
             </div>
             
         </div>
