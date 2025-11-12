@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
  import { ToastContainer } from 'react-toastify';
 import { addToLocalStorage } from '../../Components/LocalStorage/AddToLS';
+import { Bar, BarChart, CartesianGrid, Legend, Rectangle, Tooltip, XAxis, YAxis } from 'recharts';
 
 const AppDetailsPage = () => {
     const All_App_Data = useLoaderData() ;
@@ -67,8 +68,44 @@ const AppDetailsPage = () => {
 
             </div>
             <p className='text-[#c5c9cc] w-298 mb-10'><hr /></p>
-            
+
+
+            {/* CHART */}
+            <div>
+                <h3 className='text-[#001931] font-semibold text-2xl mb-6'>Ratings</h3>
+                    <div className='mb-15'>
+                    <BarChart
+                        style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
+                        responsive
+                        data={SingleAppData.ratings}
+                        layout='vertical'
+                        margin={{
+                            top: 5,
+                            right: 0,
+                            left: 0,
+                            bottom: 5,
+                        }}
+                        >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis type='number' />
+                        <YAxis dataKey="name"
+                        type='category'
+                        reversed />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="count" fill="#FF8811" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+                        {/* <Bar dataKey="name" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} /> */}
+                 </BarChart>
+                </div>
+
+                <p className='text-[#c5c9cc] w-298 mb-10'><hr /></p>
+            </div>
+           
+            <p className='mt-10 mb-6 font-semibold text-2xl text-[#001931]'>Description</p>
+            <p className='text-[#627382] text-xl whitespace-pre-line'>{SingleAppData.description} <br />  </p>
+
             <ToastContainer></ToastContainer>
+            
         </div>
     );
 };

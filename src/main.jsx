@@ -11,13 +11,15 @@ import HomePage from './Pages/HomePage/HomePage.jsx';
 import Apps from './Pages/AppsPage/AppsPage.jsx';
 import InstallationPage from './Pages/InstallationPage/InstallationPage.jsx';
 import AppDetailsPage from './Pages/AppDetailsPage/AppDetailsPage.jsx';
+import PageError from './Pages/ErrorPage/PageError.jsx';
+import ErrorLayout from './Pages/ErrorPage/ErrorLayout.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Root ,   // header outlet footer ashse page e
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorLayout></ErrorLayout>,
     
     children: [           // children jeye outlet e boshbe
       {index:true , 
@@ -34,7 +36,9 @@ const router = createBrowserRouter([
       {path:"appsdetailspage/:id" ,       // Dynamic Route, params hishebe :id er value e jai mainly
        loader:() => fetch("/public/AppsData.json") ,
        Component:AppDetailsPage
-      }
+      } ,
+
+      {path:'error' , Component: ErrorPage} ,
     ]
   },
 ]);

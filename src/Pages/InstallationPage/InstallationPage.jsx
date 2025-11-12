@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 const InstallationPage = () => {
 
-    // INSTALLED apps gulo Local Storage theke ekhane Installation page e ene dekhabo 
+    // INSTALLED apps gulo Local Storage theke UI e ene dekhano 
     const [All_Installed_Apps , setAllInstalledApps] = useState([]) ;
 
     useEffect(() => {
+        // ADDtoLS.js file thk code portion ana 
         const getStoredAppsString = localStorage.getItem("All_Installed_Apps") ;
         const getStoredAppsDATA = JSON.parse(getStoredAppsString) ;
         if(getStoredAppsDATA){
@@ -14,7 +16,7 @@ const InstallationPage = () => {
     } , [])
 
 
-    // Sort By size Label & handle Sort Order Onchange
+    // Sort By downloads Label & handle Sort Order Onchange
     const [sortOrder , setSortOrder] = useState("") ;
     const handleSortOrder = (e) => {
         e.preventDefault() ;
@@ -24,11 +26,11 @@ const InstallationPage = () => {
     // function of sorting items 
     const sortingItems = (() => {
         
-        if(sortOrder === 'sz_asc'){
-            return [...All_Installed_Apps].sort((a,b) => a.size - b.size) ;
+        if(sortOrder === 'dwnld_asc'){
+            return [...All_Installed_Apps].sort((a,b) => a.downloads - b.downloads) ;
         }
-        else if(sortOrder === "sz_dsc"){
-            return [...All_Installed_Apps].sort((a,b) => b.size - a.size) ;
+        else if(sortOrder === "dwnld_dsc"){
+            return [...All_Installed_Apps].sort((a,b) => b.downloads - a.downloads) ;
         }
         else{
             return All_Installed_Apps ;
@@ -39,9 +41,29 @@ const InstallationPage = () => {
 
 
     // handleUninstallBtn functionality
-    const handleUninstallBtn = () => {
-        
+    const handleUninstallBtn = (id) => {
+        // ADDtoLS.js file thk getInsatalledApps function er code ana 
+        const getStoredAppsString = localStorage.getItem("All_Installed_Apps") ;  
+
+        // if(getStoredAppsString) {
+        //     let getStoredAppsDATA = JSON.parse(getStoredAppsString) ;  
+        //     return getStoredAppsDATA ;
+        // }
+        // else{
+        //     return [] ;
+        // }
+        const getStoredAppsDATA = getStoredAppsString ? JSON.parse(getStoredAppsString) : [] ;
+
+
+        const remvApps = getStoredAppsDATA.filter(n => n.id !== id) ;
+        localStorage.setItem("All_Installed_Apps", JSON.stringify(remvApps)) ;
+        setAllInstalledApps(remvApps) ;
+        toast.error("App Uninstalled Successfully") ;
+
     }
+
+
+
 
     return (
         <div className='bg-[#f1f6fa] p-20'>
@@ -55,9 +77,9 @@ const InstallationPage = () => {
 
                    <label className='select border border-gray-400 bg-white'>
                         <select className='  text-[#627382]' name="" id="" onChange={handleSortOrder} value={sortOrder}>
-                            <option className='text-[#627382]' value="none" >Sort By Size</option>
-                            <option className='text-[#627382]' value="sz_asc">Low-&gt;High</option>
-                            <option className='text-[#627382]' value="sz_dsc">High-&gt;Low</option>
+                            <option className='text-[#627382]' value="none" >Sort By Downloads</option>
+                            <option className='text-[#627382]' value="dwnld_asc">Low-&gt;High</option>
+                            <option className='text-[#627382]' value="dwnld_dsc">High-&gt;Low</option>
                         </select>
                    </label>
                            
@@ -87,10 +109,11 @@ const InstallationPage = () => {
                                </div>
                                
                            </div>
-                                <button onClick={handleUninstallBtn} className='btn mt-6.5 ml-180 bg-[#00D390] border-0'>Uninstall</button>
+                                <button onClick={()=> handleUninstallBtn(m.id)} className='btn mt-6.5 ml-180 bg-[#00D390] border-0'>Uninstall</button>
                     </div> ))
                 }
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

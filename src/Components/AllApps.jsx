@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SingleAllApps from './SingleAllApps';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
 const AllApps = ({Apps_Data}) => {
 
@@ -20,6 +22,14 @@ const AllApps = ({Apps_Data}) => {
     const searchVal = search.trim().toLocaleLowerCase() ; //space remv + lowercase
     const searchProd = searchVal ? appsData.filter(j => j.title.toLocaleLowerCase().includes(searchVal)) : appsData ;
     console.log(searchProd) ;
+
+    // IF Searched product not in allapps then naviate the page into errorpage
+    const navigate = useNavigate() ;
+    useEffect( () => {
+        if(searchVal && searchProd.length === 0) {
+            navigate('/error') ;
+        }
+    } , [searchVal , navigate , searchProd]) 
 
     return (
         <div>
@@ -43,17 +53,32 @@ const AllApps = ({Apps_Data}) => {
                 }
             </div> */}
             <div>
-                {
-                    searchProd.length !== 0 ? 
+                {/* { */}
+                    {/* searchProd.length !== 0 ?  */}
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ml-10 mr-15'>
                         {
                             // appsData.map(i => <SingleAllApps key={i.id} i = {i} ></SingleAllApps>)
 
                             searchProd.map(i => <SingleAllApps key={i.id} i = {i} ></SingleAllApps>)
                         }
-                    </div> :
-                    <p className='text-[#001931] text-2xl font-bold text-center'>No App Found</p>
-                }
+                    </div> 
+                    {/* : { 
+                        const navigate = useNavigate() ;
+                        navigate('/error')
+                    } */}
+                    // <p>
+                    //     {/* <div>
+                    //         <img className='mx-auto mb-10' src="/public/assets/App-Error.png" alt="error png" />
+                    //         <p className='text-[#001931] font-semibold text-5xl text-center '>OPPS!! APP NOT FOUND</p>
+                    //         <p className='text-[#627382] text-xl font-normal mt-5'>The App you are requesting is not found on our system.  please try another apps</p>
+
+                    //         <button className='btn bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white p-2.5 rounded-lg w-[145px] h-12 font-semibold text-[16px] mt-10 mx-auto block border-0' onClick={handleGoBackBtn}>Go Back!</button>
+                    //     </div> */}
+                        
+
+                    //     {/* <ErrorPage handleGoBackBtn ={handleGoBackBtn} ></ErrorPage> */}
+                    // </p>
+                {/* // } */}
             </div>
             
         </div>
