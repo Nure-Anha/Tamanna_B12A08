@@ -41,19 +41,19 @@ const AppDetailsPage = () => {
 
                     <div className='flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 text-center gap-x-20 mb-[30px]'>
                         <div>
-                            <img className='mx-auto lg:mx-0' src="/public/assets/icon-downloads.png" alt="downloads icon" />
+                            <img className='mx-auto lg:mx-0' src="/assets/icon-downloads.png" alt="downloads icon" />
                             <p className='text-[#001931]'>Downloads</p>
                             <p className='text-[#001931] font-extrabold text-[40px]'>{SingleAppData.downloads}M </p>
                         </div>
 
                         <div>
-                            <img className='mx-auto lg:mx-0' src="/public/assets/icon-ratings.png" alt="ratings icon" />
+                            <img className='mx-auto lg:mx-0' src="/assets/icon-ratings.png" alt="ratings icon" />
                             <p className='text-[#001931]'>Average Ratings</p>
                             <p className='text-[#001931] font-extrabold text-[40px]'>{SingleAppData.ratingAvg} </p>
                         </div>
 
                         <div>
-                            <img className='mx-auto lg:mx-0' src="/public/assets/icon-review.png" alt="reviews icon" />
+                            <img className='mx-auto lg:mx-0' src="/assets/icon-review.png" alt="reviews icon" />
                             <p className='text-[#001931]'>Total Reviews</p>
                             <p className='text-[#001931] font-extrabold text-[40px]'>{SingleAppData.reviews}K </p>
                         </div>

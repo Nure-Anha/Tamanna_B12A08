@@ -23,18 +23,18 @@ const router = createBrowserRouter([
     
     children: [           // children jeye outlet e boshbe
       {index:true , 
-      loader:()=>fetch('/public/TrandingAppsData.json'),
+      loader:()=>fetch('/TrandingAppsData.json'),
       Component: HomePage} ,  // dhuktei HomePage component ta eshe thakbe
 
       {path:'apps' ,
-      loader:() => fetch("/public/AppsData.json") ,
+      loader:() => fetch("/AppsData.json") ,
       Component: Apps} ,
 
       {path:'installation' , Component: InstallationPage} ,
       // {path:'appsdetailspage' , Component: AppDetailsPage} ,
 
       {path:"appsdetailspage/:id" ,       // Dynamic Route, params hishebe :id er value e jai mainly
-       loader:() => fetch("/public/AppsData.json") ,
+       loader:() => fetch("/AppsData.json") ,
        Component:AppDetailsPage
       } ,
 

@@ -11,7 +11,7 @@ const handleGoBackBtn = () => {
 
     return (
         <div className='bg-[#f1f6fa] pb-20'>
-            <img className='mx-auto pt-20 mb-10 w-[200px]' src="/public/assets/App-Error.png" alt="error png" />
+            <img className='mx-auto pt-20 mb-10 w-[200px]' src="/assets/App-Error.png" alt="error png" />
             <p className='text-[#001931] font-semibold text-5xl text-center '>OPPS!! APP NOT FOUND</p>
             <p className='text-[#627382] text-xl font-normal mt-5 text-center'>The App you are requesting is not found on our system.  please try another apps</p>
 

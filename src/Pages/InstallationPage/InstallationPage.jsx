@@ -99,10 +99,10 @@ const InstallationPage = () => {
                                 <p className='text-[#001931] font-medium text-xl'>{m.title} </p>
 
                                 <div className='flex  gap-x-8  mt-4'>
-                                    <p className='text-green-500 font-semibold flex' ><img className='w-7 h-7' src="/public/assets/icon-downloads.png" alt="download icon" />{m.downloads}M </p>
+                                    <p className='text-green-500 font-semibold flex' ><img className='w-7 h-7' src="/assets/icon-downloads.png" alt="download icon" />{m.downloads}M </p>
                                    
                                     
-                                    <p className='text-orange-500 flex gap-x-2 text-lg font-semibold '><img className='w-7 h-7' src="/public/assets/icon-ratings.png" alt="rating icon" />{m.ratingAvg} </p>
+                                    <p className='text-orange-500 flex gap-x-2 text-lg font-semibold '><img className='w-7 h-7' src="/assets/icon-ratings.png" alt="rating icon" />{m.ratingAvg} </p>
 
 
                                     <p className='text-[#627382]'>{m.size}MB </p>
