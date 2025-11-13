@@ -32,7 +32,7 @@ const AllApps = ({Apps_Data}) => {
     // IF Searched product not in allapps then naviate the page into errorpage
     const navigate = useNavigate() ;
     useEffect( () => {
-        if(searchVal && searchProd.length && !loadingAnim  === 0) {
+        if(!loadingAnim && searchVal && searchProd.length === 0) {
             navigate('/error') ;
         }
     } , [searchVal , navigate , searchProd , loadingAnim]) 

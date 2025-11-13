@@ -50,7 +50,7 @@ const Navbar = () => {
       {/* LOGO AND Title */}
             <div className='flex gap-2 ml-[30px]' onClick={handleLogoClick}>
               <img className='w-11 cursor-pointer' src="/assets/logo.png" alt="Logo" />
-              <h3 className="mt-2 text-[16px] font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent cursor-pointer" >HERO.IO</h3>
+              <h3 className="mt-2 text-[16px] font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent cursor-pointer" >AppVibe</h3>
             </div>
         </div>
 

@@ -90,7 +90,7 @@ const InstallationPage = () => {
                     // <div className='flex gap-x-5 mb-10 bg-white rounded-xl p-2'>
 
                     sortingItems.map(m => ( 
-                    <div className='flex gap-x-5 mb-10 bg-white rounded-xl p-2'>
+                    <div className='flex flex-col md:flex-row lg:flex-row gap-x-5 mb-10 bg-white rounded-xl p-2'>
                         
                             <div>
                                 <img className='w-[90px] rounded-2xl' src={m.image} alt={m.title} />
@@ -109,7 +109,7 @@ const InstallationPage = () => {
                                </div>
                                
                            </div>
-                                <button onClick={()=> handleUninstallBtn(m.id)} className='btn mt-6.5 ml-180 bg-[#00D390] border-0'>Uninstall</button>
+                                <button onClick={()=> handleUninstallBtn(m.id)} className='btn mt-6.5 md:ml-50  lg:ml-100 xl:ml-180 bg-[#00D390] border-0'>Uninstall</button>
                     </div> ))
                 }
             </div>

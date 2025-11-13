@@ -29,31 +29,31 @@ const AppDetailsPage = () => {
 
     return (
         <div className='bg-[#f1f6fa] p-20'>
-            <div className='flex gap-x-5'>
+            <div className='flex flex-col lg:flex-row  md:text-center lg:text-left gap-x-5'>
                 <div>
-                    <img className='rounded-4xl' src={SingleAppData.image} alt={SingleAppData.title} />
+                    <img className='md:mx-auto lg:mx-auto xl:mx-0 rounded-4xl' src={SingleAppData.image} alt={SingleAppData.title} />
                 </div>
                 
                 <div>
                     <p className='text-[#001931] font-bold text-[32px] mb-2'>{SingleAppData.title} </p>
                     <p className='text-xl mb-[30px] text-[#627382]'>Developed by <span className='font-bold bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent'>{SingleAppData.companyName}</span> </p>
-                    <p className='text-[#c5c9cc] w-240 mb-5'><hr /></p>
+                    <p className='text-[#c5c9cc] xl:w-240 mb-5'><hr /></p>
 
-                    <div className='flex gap-x-20 mb-[30px]'>
+                    <div className='flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 text-center gap-x-20 mb-[30px]'>
                         <div>
-                            <img src="/public/assets/icon-downloads.png" alt="downloads icon" />
+                            <img className='mx-auto lg:mx-0' src="/public/assets/icon-downloads.png" alt="downloads icon" />
                             <p className='text-[#001931]'>Downloads</p>
                             <p className='text-[#001931] font-extrabold text-[40px]'>{SingleAppData.downloads}M </p>
                         </div>
 
                         <div>
-                            <img src="/public/assets/icon-ratings.png" alt="ratings icon" />
+                            <img className='mx-auto lg:mx-0' src="/public/assets/icon-ratings.png" alt="ratings icon" />
                             <p className='text-[#001931]'>Average Ratings</p>
                             <p className='text-[#001931] font-extrabold text-[40px]'>{SingleAppData.ratingAvg} </p>
                         </div>
 
                         <div>
-                            <img src="/public/assets/icon-review.png" alt="reviews icon" />
+                            <img className='mx-auto lg:mx-0' src="/public/assets/icon-review.png" alt="reviews icon" />
                             <p className='text-[#001931]'>Total Reviews</p>
                             <p className='text-[#001931] font-extrabold text-[40px]'>{SingleAppData.reviews}K </p>
                         </div>
@@ -67,7 +67,7 @@ const AppDetailsPage = () => {
                 </div>
 
             </div>
-            <p className='text-[#c5c9cc] w-298 mb-10'><hr /></p>
+            <p className='text-[#c5c9cc] xl:w-298 mb-10'><hr /></p>
 
 
             {/* CHART */}
@@ -98,7 +98,7 @@ const AppDetailsPage = () => {
                  </BarChart>
                 </div>
 
-                <p className='text-[#c5c9cc] w-298 mb-10'><hr /></p>
+                <p className='text-[#c5c9cc] xl:w-298 mb-10'><hr /></p>
             </div>
            
             <p className='mt-10 mb-6 font-semibold text-2xl text-[#001931]'>Description</p>
