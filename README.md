@@ -1,16 +1,22 @@
-# React + Vite
+App Name: 
+AppVibe - A Modern App Store Experience.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Description: 
+AppVibe is a fully responsive React-based web application that represents a modern app store platform. 
+Users can explore a collection of apps, view detailed information like downloads, ratings, and reviews, and also install or uninstall apps, which also removes them from Local storage.
+It also includes navigation, live search, filtering, sorting, and real-time loading animations to ensure a smooth and interactive user experience.
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Technologies: 
+For the Frontend Part, I use the following technologies -
+1. React.js for components and hooks
+2. Tailwind CSS for design and responsive
+3. Daisy UI for buttons and other designs
+4. Recharts for chart visualization
+5. React Toastify for success, warning toasts
+6. JSON for self-made API data
+7. Vite for Project setup
+8. GitHub and Netlify for deployment 
