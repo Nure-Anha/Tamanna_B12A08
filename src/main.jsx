@@ -11,7 +11,6 @@ import Apps from './Pages/AppsPage/AppsPage.jsx';
 import InstallationPage from './Pages/InstallationPage/InstallationPage.jsx';
 import AppDetailsPage from './Pages/AppDetailsPage/AppDetailsPage.jsx';
 import ErrorLayout from './Pages/ErrorPage/ErrorLayout.jsx';
-import AppNotFound from './Pages/AppDetailsPage/AppNotFound.jsx';
 
 
 const router = createBrowserRouter([
@@ -35,9 +34,7 @@ const router = createBrowserRouter([
       {path:"appsdetailspage/:id" ,       // Dynamic Route, params hishebe :id er value e jai mainly
        loader:() => fetch("/AppsData.json") ,
        Component:AppDetailsPage
-      } ,
-
-      {path: 'error' , Component: AppNotFound}
+      } 
     ]
   },
 ]);

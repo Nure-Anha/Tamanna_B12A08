@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
  import { ToastContainer } from 'react-toastify';
-import { addToLocalStorage } from '../../Components/LocalStorage/AddToLS';
+import { addToLocalStorage, getInsatalledApps } from '../../Components/LocalStorage/AddToLS';
 import { Bar, BarChart, CartesianGrid, Legend, Rectangle, Tooltip, XAxis, YAxis } from 'recharts';
 import AppNotFound from '../AppDetailsPage/AppNotFound';
 
@@ -22,11 +22,19 @@ const AppDetailsPage = () => {
     // INSTALL Btn Functionality
     const [installed , setInstalled] = useState(false) ;
 
+    useEffect(() => {
+        const instlld_apps = getInsatalledApps() ; //from ls.js function returned getInsatalledApps call here 
+        const installedAppsChk = instlld_apps.find(p => p.id === AppId) ;
+        if(installedAppsChk){
+            setInstalled(true) ;
+        }
+    },[AppId])
+
     const handleInstallBtn = (obj) => {
         setInstalled(true) ;
         // toast.success("App installed successfully!") ;
 
-        addToLocalStorage(obj) ;
+        addToLocalStorage(obj) ;   // function call here 
     }
 
 

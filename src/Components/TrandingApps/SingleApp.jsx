@@ -13,7 +13,7 @@ const SingleApp = ({i}) => {
     }
     return (
         <div onClick={handleCardClick}>
-            <div className='rounded-2xl shadow-2xl bg-white'>
+            <div className='rounded-2xl shadow-2xl bg-white cursor-pointer'>
                 <img className='rounded-4xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 
                 mx-auto p-5' src={i.image} alt={i.title} />
                 <p className='text-[#001931] font-medium text-center mt-3 text-xl'>{i.title} </p>

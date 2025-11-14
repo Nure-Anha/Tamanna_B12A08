@@ -20,7 +20,7 @@ const InstallationPage = () => {
             setTimeout(() => {
             setAllInstalledApps(getStoredAppsDATA);
             setLoadingAnim(false);
-            },20);
+            },100);
         }
     } , [])
 

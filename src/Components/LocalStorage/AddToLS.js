@@ -20,15 +20,18 @@ const addToLocalStorage = (obj) => {
 
     // if(getAllInstalledApps.includes(obj)){
     const alrdyinstalled = getAllInstalledApps.find(i => (obj.id === i.id)) ;
-    if(alrdyinstalled){
-        toast.warn("Already Installed") ;
-    }
-    else{
+    if(!alrdyinstalled){
+        // toast.warn("Already Installed") ;
         getAllInstalledApps.push(obj) ;
         localStorage.setItem("All_Installed_Apps", JSON.stringify(getAllInstalledApps)) ; // pushed item converted into json str again
         toast.success("Installed Successfully") ;
-
     }
+    // else{
+    //     getAllInstalledApps.push(obj) ;
+    //     localStorage.setItem("All_Installed_Apps", JSON.stringify(getAllInstalledApps)) ; // pushed item converted into json str again
+    //     toast.success("Installed Successfully") ;
+
+    // }
 }
 
 export {addToLocalStorage , getInsatalledApps} ;
