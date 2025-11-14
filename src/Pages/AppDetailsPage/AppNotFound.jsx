@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 
-const ErrorPage = () => {
+const AppNotFound = () => {
 
 // handleGoBackBtn functionality 
 const navigte = useNavigate() ;
@@ -20,4 +20,4 @@ const handleGoBackBtn = () => {
     );
 };
 
-export default ErrorPage;
+export default AppNotFound;

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import SingleAllApps from './SingleAllApps';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router';
-import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
 const AllApps = ({Apps_Data}) => {
 
@@ -13,7 +11,9 @@ const AllApps = ({Apps_Data}) => {
 
     // SEARCH & Loading spinner when user seach operation doing
     const [search , setSearch] = useState('') ;
+    // Loading Spiner
     const [loadingAnim , setLoadingAnim] = useState(false) ;
+    
     const handleSearch = (e) => {
         e.preventDefault() ;
         console.log(e.target.value) ;
@@ -28,14 +28,8 @@ const AllApps = ({Apps_Data}) => {
     const searchVal = search.trim().toLocaleLowerCase() ; //space remv + lowercase
     const searchProd = searchVal ? appsData.filter(j => j.title.toLocaleLowerCase().includes(searchVal)) : appsData ;
     console.log(searchProd) ;
-
-    // IF Searched product not in allapps then naviate the page into errorpage
-    const navigate = useNavigate() ;
-    useEffect( () => {
-        if(!loadingAnim && searchVal && searchProd.length === 0) {
-            navigate('/error') ;
-        }
-    } , [searchVal , navigate , searchProd , loadingAnim]) 
+    
+    
 
     return (
         <div>
@@ -68,7 +62,7 @@ const AllApps = ({Apps_Data}) => {
                         }
                     </div>  */}
                     {
-                        loadingAnim ?  (<div><span className="loading loading-dots loading-xl text-black ml-[650px]"></span></div>)  :  (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ml-10 mr-15'>
+                        loadingAnim ?  (<div><span className="loading loading-dots loading-xl text-black ml-[650px]"></span></div>) : searchVal && searchProd.length === 0 ? (<p className="text-center text-2xl text-[#001931] font-semibold mt-10">No App Found</p>) : (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ml-10 mr-15'>
                         {
                             // appsData.map(i => <SingleAllApps key={i.id} i = {i} ></SingleAllApps>)
 

@@ -6,12 +6,21 @@ const InstallationPage = () => {
     // INSTALLED apps gulo Local Storage theke UI e ene dekhano 
     const [All_Installed_Apps , setAllInstalledApps] = useState([]) ;
 
+    // extra Loading spinner set in Installation 
+    const [loadingAnim , setLoadingAnim] = useState(false) ;
+
     useEffect(() => {
+        setLoadingAnim(true) ;
         // ADDtoLS.js file thk code portion ana 
         const getStoredAppsString = localStorage.getItem("All_Installed_Apps") ;
         const getStoredAppsDATA = JSON.parse(getStoredAppsString) ;
         if(getStoredAppsDATA){
-            setAllInstalledApps(getStoredAppsDATA) ;
+            // setAllInstalledApps(getStoredAppsDATA) ;
+            // setLoadingAnim(false) ;
+            setTimeout(() => {
+            setAllInstalledApps(getStoredAppsDATA);
+            setLoadingAnim(false);
+            },20);
         }
     } , [])
 
@@ -66,7 +75,9 @@ const InstallationPage = () => {
 
 
     return (
-        <div className='bg-[#f1f6fa] p-20'>
+        <div>
+        {
+            loadingAnim ? (<span className="loading loading-spinner loading-xl ml-[650px]"></span>) : (<div className='bg-[#f1f6fa] p-20'>
             <h3 className='text-[#001931] font-bold text-[48px] text-center'>Your Installed Apps</h3>
             <p className='text-[#627382] text-center mt-4 text-xl mb-10'>Explore All Trending Apps on the Market developed by us</p>
 
@@ -114,6 +125,8 @@ const InstallationPage = () => {
                 }
             </div>
             <ToastContainer></ToastContainer>
+        </div>)
+        }
         </div>
     );
 };

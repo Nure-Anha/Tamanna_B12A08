@@ -6,13 +6,12 @@ import App from './App.jsx'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Root from './Pages/RootPage/Root.jsx';
-import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx';
 import HomePage from './Pages/HomePage/HomePage.jsx';
 import Apps from './Pages/AppsPage/AppsPage.jsx';
 import InstallationPage from './Pages/InstallationPage/InstallationPage.jsx';
 import AppDetailsPage from './Pages/AppDetailsPage/AppDetailsPage.jsx';
-import PageError from './Pages/ErrorPage/PageError.jsx';
 import ErrorLayout from './Pages/ErrorPage/ErrorLayout.jsx';
+import AppNotFound from './Pages/AppDetailsPage/AppNotFound.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,7 +37,7 @@ const router = createBrowserRouter([
        Component:AppDetailsPage
       } ,
 
-      {path:'error' , Component: ErrorPage} ,
+      {path: 'error' , Component: AppNotFound}
     ]
   },
 ]);

@@ -3,6 +3,8 @@ import { useLoaderData, useParams } from 'react-router';
  import { ToastContainer } from 'react-toastify';
 import { addToLocalStorage } from '../../Components/LocalStorage/AddToLS';
 import { Bar, BarChart, CartesianGrid, Legend, Rectangle, Tooltip, XAxis, YAxis } from 'recharts';
+import AppNotFound from '../AppDetailsPage/AppNotFound';
+
 
 const AppDetailsPage = () => {
     const All_App_Data = useLoaderData() ;
@@ -16,6 +18,7 @@ const AppDetailsPage = () => {
     console.log(SingleAppData) ;
 
 
+
     // INSTALL Btn Functionality
     const [installed , setInstalled] = useState(false) ;
 
@@ -24,6 +27,15 @@ const AppDetailsPage = () => {
         // toast.success("App installed successfully!") ;
 
         addToLocalStorage(obj) ;
+    }
+
+
+    
+    // app not found in app details section
+    if(!SingleAppData){
+        return (
+            <AppNotFound></AppNotFound>
+        )
     }
 
 
